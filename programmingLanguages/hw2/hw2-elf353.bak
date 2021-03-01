@@ -1,0 +1,6 @@
+(define (del value list)
+  (cond ((null? list) list)
+        ((list? (car list))
+         (cons (del value (car list)) (del value (cdr list))))
+        ((equal? value (car list)) (del value (cdr list)))
+        (else (cons (car list) (del value (cdr list))))))
