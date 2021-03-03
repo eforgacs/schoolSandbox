@@ -25,6 +25,9 @@
 #   end for
 #
 # end;
+global a
+global b
+global n
 
 def outer():
     a = 7
