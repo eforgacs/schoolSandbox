@@ -131,7 +131,6 @@ fun getitem _ nil = NONE
   else if n=0 then SOME h else getitem (n-1) t
 
 
-
 (* 8. Write a function getitem2 = fn : int option -> ’a list -> ’a option. This is similar to
 above, but instead of accepting an int as the first argument, it accepts int option. The function
 should evaluate to NONE if NONE is passed as an argument, and behave as above otherwise. Examples:
@@ -151,3 +150,9 @@ val it = NONE : int option
 Hint: this should follow the same idea as the bind function, but should fix the underlying routine
 as getitem.
 *)
+
+fun getitem2 (SOME _) nil = NONE
+  | getitem2 NONE nil = NONE
+  | getitem2 NONE (h::t) = NONE
+  | getitem2 (SOME n) (h::t) = if n < 0 then NONE
+  else if n=1 then SOME h else getitem2 ((SOME (n-1))) t
